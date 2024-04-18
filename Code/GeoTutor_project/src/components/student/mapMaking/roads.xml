@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0"
+    xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+    xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">   <!--
+    a Named Layer is the basic building block of an SLD document -->
+    <NamedLayer>
+        <Name>roads</Name>
+        <UserStyle>
+            <Name>roads</Name>
+            <FeatureTypeStyle>
+                <Name>group0</Name>
+                <FeatureTypeName>Feature</FeatureTypeName>
+                <SemanticTypeIdentifier>generic:geometry</SemanticTypeIdentifier>
+                <SemanticTypeIdentifier>colorbrewer:quantile:rdylgn</SemanticTypeIdentifier>
+                <Rule>
+                    <Name>rule01</Name>
+                    <Title>1..9</Title>
+                    <ogc:Filter>
+                        <ogc:And>
+                            <ogc:PropertyIsGreaterThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>1</ogc:Literal>
+                            </ogc:PropertyIsGreaterThanOrEqualTo>
+                            <ogc:PropertyIsLessThan>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>9</ogc:Literal>
+                            </ogc:PropertyIsLessThan>
+                        </ogc:And>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#F46D43</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>ref</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Arial</CssParameter>
+                            <CssParameter name="font-size">12.0</CssParameter>
+                            <CssParameter name="font-style">normal</CssParameter>
+                            <CssParameter name="font-weight">normal</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <LinePlacement>
+                                <PerpendicularOffset>10.0</PerpendicularOffset>
+                            </LinePlacement>
+                        </LabelPlacement>
+                        <Fill>
+                            <CssParameter name="fill">#000000</CssParameter>
+                        </Fill>
+                    </TextSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule02</Name>
+                    <Title>9..17</Title>
+                    <ogc:Filter>
+                        <ogc:And>
+                            <ogc:PropertyIsGreaterThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>9</ogc:Literal>
+                            </ogc:PropertyIsGreaterThanOrEqualTo>
+                            <ogc:PropertyIsLessThan>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>17</ogc:Literal>
+                            </ogc:PropertyIsLessThan>
+                        </ogc:And>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#FDAE61</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule03</Name>
+                    <Title>17..25</Title>
+                    <ogc:Filter>
+                        <ogc:And>
+                            <ogc:PropertyIsGreaterThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>17</ogc:Literal>
+                            </ogc:PropertyIsGreaterThanOrEqualTo>
+                            <ogc:PropertyIsLessThan>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>25</ogc:Literal>
+                            </ogc:PropertyIsLessThan>
+                        </ogc:And>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#FFFFBF</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule04</Name>
+                    <Title>25..33</Title>
+                    <ogc:Filter>
+                        <ogc:And>
+                            <ogc:PropertyIsGreaterThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>25</ogc:Literal>
+                            </ogc:PropertyIsGreaterThanOrEqualTo>
+                            <ogc:PropertyIsLessThan>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>33</ogc:Literal>
+                            </ogc:PropertyIsLessThan>
+                        </ogc:And>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#A6D96A</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule05</Name>
+                    <Title>33..39</Title>
+                    <ogc:Filter>
+                        <ogc:And>
+                            <ogc:PropertyIsGreaterThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>33</ogc:Literal>
+                            </ogc:PropertyIsGreaterThanOrEqualTo>
+                            <ogc:PropertyIsLessThanOrEqualTo>
+                                <ogc:PropertyName>OBJECTID</ogc:PropertyName>
+                                <ogc:Literal>39</ogc:Literal>
+                            </ogc:PropertyIsLessThanOrEqualTo>
+                        </ogc:And>
+                    </ogc:Filter>
+                    <LineSymbolizer>
+                        <Stroke>
+                            <CssParameter name="stroke">#1A9641</CssParameter>
+                        </Stroke>
+                    </LineSymbolizer>
+                </Rule>
+            </FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="draw">绘制</button>
+    <button id="add">添加</button>
+    <button id="exit">退出</button>
+    <div id="map"></div>
+    <script>
+        const map = new ol.Map({
+            target: 'map',
+            layers: [],
+            view: new ol.View({
+                center: [118.63947, 32.08197],
+                zoom: 15,
+                projection: 'EPSG:4326'
+            })
+        });
+        map.addLayer(new ol.layer.WebGLTile({
+            source: new ol.source.OSM()
+        }));
+        const vectorLayer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                url: 'http://localhost:8060/geoserver/njtech/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=njtech:route&outputFormat=application/json',
+                format: new ol.format.GeoJSON()
+            }),
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#0000ff',
+                    width: 2
+                })
+            })
+        });
+        map.addLayer(vectorLayer);
+
+        // 绘制控件
+        let drawedFeatures = [];
+        let draw = new ol.interaction.Draw({
+            source: vectorLayer.getSource(),
+            type: 'MultiLineString',
+            geometryName: 'the_geom'                // 注意：这里图形信息字段一定要和后端服务器一致
+        });
+        draw.on('drawend', (event) => {
+            let feature = event.feature;
+            // 为要素添加属性，我这里随便设置属性
+            feature.set('TYPE', 'highway');
+            drawedFeatures.push(event.feature);
+        });
+        map.addInteraction(draw);
+        draw.setActive(false);
+
+        document.querySelector('#add').addEventListener('click', (event) => {
+            // 将绘制的要素添加到后台
+            addFeatureWFS(drawedFeatures);
+        });
+        document.querySelector('#draw').addEventListener('click', (event) => {
+            // 绘制要添加的要素
+            draw.setActive(true);
+        });
+        document.querySelector('#exit').addEventListener('click', (event) => {
+            // 退出绘制
+            draw.setActive(false);
+        });
+
+        // 服务配置，命名空间、图层、服务地址等
+        const geoserverData = {
+            workSpaceName: 'njtech',
+            url: 'njtech',
+            wfsURL: 'http://localhost:8060/geoserver/njtech/ows?',
+            layer: 'water'
+        }
+
+        function addFeatureWFS(features) {
+            let WFS = new ol.format.WFS();
+            // 生成XML格式的WFS请求信息
+            let transact_xml = WFS.writeTransaction(
+                features, null, null,
+                {
+                    srcName: 'EPSG:4326',
+                    featureNS: geoserverData.url,
+                    featurePrefix: geoserverData.workSpaceName,
+                    featureType: [geoserverData.layer],
+                }
+            );
+            // 将XML格式请求信息序列化为字符串格式
+            transact_str = (new XMLSerializer()).serializeToString(transact_xml);
+            // 使用Fetch将请求发送到后端
+            console.log(transact_str)
+            fetch('http://localhost:8060/geoserver/wfs', {
+                method: 'POST',
+                body: transact_str,
+                headers: {
+                    'Content-Type': 'text/xml'
+                }
+            }).then(res => res.text()).then(res => {
+                let transactRes = WFS.readTransactionResponse(res);
+                console.log(transactRes)
+                let str = transactRes.transactionSummary.totalInserted +
+                    " totalInserted!, insertIds: " + transactRes.insertIds + "\n";
+                str += transactRes.transactionSummary.totalUpdated + " totalUpdated!\n";
+                str += transactRes.transactionSummary.totalDeleted + " totalDeleted!";
+                alert(str);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<layerGroup>
+  <id>LayerGroupInfoImpl--3c306248:1853ed5f92b:-7fb5</id>
+  <name>njtech_en_geoserver</name>
+  <mode>SINGLE</mode>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <publishables>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fc2</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fce</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fca</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fc6</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fbe</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fba</id>
+    </published>
+    <published type="layer">
+      <id>LayerInfoImpl--3c306248:1853ed5f92b:-7fb6</id>
+    </published>
+  </publishables>
+  <styles>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd5</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd8</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd7</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--2aaaf329:184804068e3:-7fec</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd4</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd3</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--3c306248:1853ed5f92b:-7fd2</id>
+    </style>
+  </styles>
+  <bounds>
+    <minx>118.62861958200006</minx>
+    <maxx>118.65044785100008</maxx>
+    <miny>32.07033643700004</miny>
+    <maxy>32.092786999000054</maxy>
+    <crs>EPSG:4326</crs>
+  </bounds>
+  <metadata>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-12-23 15:02:40.162 UTC</dateCreated>
+  <dateModified>2023-01-12 09:27:11.928 UTC</dateModified>
+</layerGroup>

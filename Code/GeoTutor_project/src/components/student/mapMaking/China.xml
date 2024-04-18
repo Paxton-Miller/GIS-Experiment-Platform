@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0"
+    xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+    xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">   <!--
+    a Named Layer is the basic building block of an SLD document -->
+    <NamedLayer>
+        <Name>China</Name>
+        <UserStyle>
+            <Name>China</Name>
+            <FeatureTypeStyle>
+                <Name>group0</Name>
+                <FeatureTypeName>Feature</FeatureTypeName>
+                <SemanticTypeIdentifier>generic:geometry</SemanticTypeIdentifier>
+                <SemanticTypeIdentifier>colorbrewer:unique:accents</SemanticTypeIdentifier>
+                <Rule>
+                    <Name>rule01</Name>
+                    <Title>, Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong</Title>
+                    <ogc:Filter>
+                        <ogc:Or>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal />
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Anhui</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Beijing</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Chongqing</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Fujian</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Gansu</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Guangdong</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                        </ogc:Or>
+                    </ogc:Filter>
+                    <PolygonSymbolizer>
+                        <Fill>
+                            <CssParameter name="fill">#7FC97F</CssParameter>
+                            <CssParameter name="fill-opacity">0.5</CssParameter>
+                        </Fill>
+                        <Stroke />
+                    </PolygonSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule02</Name>
+                    <Title>Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hong Kong</Title>
+                    <ogc:Filter>
+                        <ogc:Or>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Guangxi</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Guizhou</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Hainan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Hebei</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Heilongjiang</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Henan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Hong Kong</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                        </ogc:Or>
+                    </ogc:Filter>
+                    <PolygonSymbolizer>
+                        <Fill>
+                            <CssParameter name="fill">#BEAED4</CssParameter>
+                            <CssParameter name="fill-opacity">0.5</CssParameter>
+                        </Fill>
+                        <Stroke />
+                    </PolygonSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule03</Name>
+                    <Title>Hubei, Hunan, Inner Mongoria, Jiangsu, Jiangxi, Jilin, Liaoning</Title>
+                    <ogc:Filter>
+                        <ogc:Or>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Hubei</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Hunan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Inner Mongoria</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Jiangsu</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Jiangxi</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Jilin</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Liaoning</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                        </ogc:Or>
+                    </ogc:Filter>
+                    <PolygonSymbolizer>
+                        <Fill>
+                            <CssParameter name="fill">#FDC086</CssParameter>
+                            <CssParameter name="fill-opacity">0.5</CssParameter>
+                        </Fill>
+                        <Stroke />
+                    </PolygonSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule04</Name>
+                    <Title>Macao, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi</Title>
+                    <ogc:Filter>
+                        <ogc:Or>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Macao</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Ningxia</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Qinghai</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Shaanxi</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Shandong</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Shanghai</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Shanxi</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                        </ogc:Or>
+                    </ogc:Filter>
+                    <PolygonSymbolizer>
+                        <Fill>
+                            <CssParameter name="fill">#FFFF99</CssParameter>
+                            <CssParameter name="fill-opacity">0.5</CssParameter>
+                        </Fill>
+                        <Stroke />
+                    </PolygonSymbolizer>
+                </Rule>
+                <Rule>
+                    <Name>rule05</Name>
+                    <Title>Sichuan, Taiwan, Tianjin, Tibet, Xinjiang, Yunnan, Zhejiang</Title>
+                    <ogc:Filter>
+                        <ogc:Or>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Sichuan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Taiwan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Tianjin</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Tibet</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Xinjiang</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Yunnan</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                            <ogc:PropertyIsEqualTo>
+                                <ogc:PropertyName>name</ogc:PropertyName>
+                                <ogc:Literal>Zhejiang</ogc:Literal>
+                            </ogc:PropertyIsEqualTo>
+                        </ogc:Or>
+                    </ogc:Filter>
+                    <PolygonSymbolizer>
+                        <Fill>
+                            <CssParameter name="fill">#386CB0</CssParameter>
+                            <CssParameter name="fill-opacity">0.5</CssParameter>
+                        </Fill>
+                        <Stroke />
+                    </PolygonSymbolizer>
+                </Rule>
+            </FeatureTypeStyle>
+            <FeatureTypeStyle>
+                <Name>group1</Name>
+                <FeatureTypeName>Feature</FeatureTypeName>
+                <SemanticTypeIdentifier>generic:geometry</SemanticTypeIdentifier>
+                <SemanticTypeIdentifier>simple</SemanticTypeIdentifier>
+                <Rule>
+                    <Name>default rule</Name>
+                    <TextSymbolizer>
+                        <Label>
+                            <ogc:PropertyName>name</ogc:PropertyName>
+                        </Label>
+                        <Font>
+                            <CssParameter name="font-family">Arial</CssParameter>
+                            <CssParameter name="font-size">12.0</CssParameter>
+                            <CssParameter name="font-style">normal</CssParameter>
+                            <CssParameter name="font-weight">normal</CssParameter>
+                        </Font>
+                        <LabelPlacement>
+                            <PointPlacement>
+                                <AnchorPoint>
+                                    <AnchorPointX>0.5</AnchorPointX>
+                                    <AnchorPointY>0.5</AnchorPointY>
+                                </AnchorPoint>
+                            </PointPlacement>
+                        </LabelPlacement>
+                        <Fill>
+                            <CssParameter name="fill">#000000</CssParameter>
+                        </Fill>
+                    </TextSymbolizer>
+                </Rule>
+            </FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

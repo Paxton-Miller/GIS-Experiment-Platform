@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navNotifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/notification" />
+    <item
+        android:id="@+id/navSubmit"
+        android:icon="@drawable/ic_exptmanage_black_24dp"
+        android:title="@string/exptmanage" />
+    <item
+        android:id="@+id/navStudentHome"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="我的" />
+
+</menu>

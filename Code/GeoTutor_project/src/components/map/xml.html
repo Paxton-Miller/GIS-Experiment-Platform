@@ -1,0 +1,43 @@
+<Transaction xmlns="http://www.opengis.net/wfs" service="WFS" version="1.1.0"
+    xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Update typeName="njtech:water" xmlns:njtech="njtech">
+        <Property>
+            <Name>the_geom</Name>
+            <Value>
+                <MultiPolygon xmlns="http://www.opengis.net/gml">
+                    <polygonMember>
+                        <Polygon>
+                            <exterior>
+                                <LinearRing>
+                                    <posList srsDimension="2">118.62355894 32.09179527 118.6304254 32.09454185
+                                        118.62750715 32.07952148 118.61634916 32.0834697 118.61127461883545
+                                        32.09671857286666 118.62355894 32.09179527</posList>
+                                </LinearRing>
+                            </exterior>
+                        </Polygon>
+                    </polygonMember>
+                </MultiPolygon>
+            </Value>
+        </Property>
+        <Property>
+            <Name>OBJECTID</Name>
+            <Value>24</Value>
+        </Property>
+        <Property>
+            <Name>Name</Name>
+            <Value>water</Value>
+        </Property>
+        <Property>
+            <Name>SHAPE_Leng</Name>
+            <Value>24</Value>
+        </Property>
+        <Property>
+            <Name>SHAPE_Area</Name>
+            <Value>24</Value>
+        </Property>
+        <Filter xmlns="http://www.opengis.net/ogc">
+            <FeatureId fid="water.21" />
+        </Filter>
+    </Update>
+</Transaction>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GeoTutor</string>
+    <string name="assignfeedback">批改</string>
+    <string name="assignmanage">发布</string>
+    <string name="exptmanage">实验</string>
+    <string name="notification">通知</string>
+    <string name="studentmanage">通知</string>
+    <string name="home">我的</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

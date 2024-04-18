@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gwcQuotaConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://geowebcache.org/diskquota org/geowebcache/config/geowebcache-diskquota.xsd" xmlns="http://geowebcache.org/diskquota">
+
+  <enabled>false</enabled>
+  <diskBlockSize>4096</diskBlockSize>
+
+  <cacheCleanUpFrequency>10</cacheCleanUpFrequency>
+  <cacheCleanUpUnits>SECONDS</cacheCleanUpUnits>
+
+  <maxConcurrentCleanUps>3</maxConcurrentCleanUps>
+
+  <globalExpirationPolicyName>LFU</globalExpirationPolicyName>
+  <globalQuota>
+    <value>200</value>
+    <units>GiB</units>
+  </globalQuota>
+  
+  <layerQuotas>
+    <LayerQuota>
+      <layer>topp:states</layer>
+      <expirationPolicyName>LFU</expirationPolicyName>
+      <quota>
+        <value>100</value>
+        <units>MiB</units>
+      </quota>
+    </LayerQuota>
+
+    <LayerQuota>
+      <layer>raster test layer</layer>
+      <expirationPolicyName>LRU</expirationPolicyName>
+      <quota>
+        <value>3</value>
+        <units>GiB</units>
+      </quota>
+    </LayerQuota>
+  </layerQuotas>
+</gwcQuotaConfiguration>

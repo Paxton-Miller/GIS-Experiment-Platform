@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="select">选择</button>
+    <button id="modify">提交</button>
+    <button id="exit">退出</button>
+    <div id="map"></div>
+    <script>
+        const map = new ol.Map({
+            target: 'map',
+            layers: [],
+            view: new ol.View({
+                center: [118.63947, 32.08197],
+                zoom: 14,
+                projection: 'EPSG:4326'
+            })
+        });
+        // map.addLayer(new ol.layer.WebGLTile({
+        //     source: new ol.source.OSM()
+        // }));
+        map.addLayer(new ol.layer.Tile({
+            source: new ol.source.XYZ({
+                url: 'https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}',
+                wrapX: false
+            })
+        }));
+        const vectorLayer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                url: 'http://localhost:8060/geoserver/njtech_info/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=njtech_info:buildings&outputFormat=application/json',
+                format: new ol.format.GeoJSON({
+                    geometryName: 'the_geom'
+                })
+            }),
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#0000ff',
+                    width: 2
+                })
+            })
+        });
+        map.addLayer(vectorLayer);
+
+        document.querySelector('#select').addEventListener('click', (event) => {
+            select.setActive(true);
+        });
+        document.querySelector('#exit').addEventListener('click', (event) => {
+            select.setActive(false);
+        });
+
+        // 服务配置，命名空间、图层、服务地址等
+        const geoserverData = {
+            workSpaceName: 'njtech_info',
+            uri: 'njtech_info',
+            wfsURL: 'http://localhost:8060/geoserver/njtech_info/ows?',
+            layer: 'water'
+        }
+
+        // 选择要素控件
+        let select = new ol.interaction.Select({
+            layers: [vectorLayer],
+            hitTolerance: 10
+        });
+        map.addInteraction(select);
+        select.setActive(false);
+
+        // 修改要素控件
+        let modify = new ol.interaction.Modify({
+            features: select.getFeatures()
+        });
+        // 保存修改完成的要素
+        let modifiedFeatures = null;    // 用于保存被修改的要素
+        modify.on('modifyend', (event) => {
+            console.log(select.getFeatures())
+
+            modifiedFeatures = event.features;
+        });
+        map.addInteraction(modify);
+
+        document.querySelector('#modify').addEventListener('click', (event) => {
+            let features = [];
+            modifiedFeatures.forEach(function (item, index, array) {
+                features.push(item);
+            });
+            updateWFS(features);
+        });
+
+        function updateWFS(features) {
+            console.log(features)
+            let WFS = new ol.format.WFS();
+            // 生成XML格式的WFS请求信息
+            let transact_xml = WFS.writeTransaction(
+                null, features, null,
+                {
+
+                    srcName: 'EPSG:4326',
+                    featureNS: geoserverData.uri,
+                    featurePrefix: geoserverData.workSpaceName,
+                    featureType: [geoserverData.layer],
+                }
+            )
+            // 将XML格式请求信息序列化为字符串格式
+            transact_str = (new XMLSerializer()).serializeToString(transact_xml);
+
+            var start_index = transact_str.indexOf('2">') + 3
+            var end_index = transact_str.indexOf('</posList>')
+            var before = transact_str.substring(0, start_index)
+            var after = transact_str.substring(end_index, transact_str.length)
+            var data = transact_str.substring(start_index, end_index).split(' ')
+            for (var i = 0; i < data.length; i = i + 2) {
+                var tmp = data[i + 1]
+                data[i + 1] = data[i]
+                data[i] = tmp
+            }
+            var str = ''
+            for (var i = 0; i < data.length; i++) {
+                str += data[i]
+                if (i != data.length - 1)
+                    str += ' '
+            }
+            transact_str = before + str + after
+            console.log(transact_str)
+            // 使用Fetch将请求发送到后端
+            fetch('http://localhost:8060/geoserver/wfs', {
+                method: 'POST',
+                body: transact_str,
+                headers: {
+                    'Content-Type': 'text/xml'
+                }
+            }).then(res => res.text()).then(res => {
+                let transactRes = WFS.readTransactionResponse(res);
+                let str = transactRes.transactionSummary.totalInserted +
+                    " totalInserted!, insertIds: " + transactRes.insertIds + "\n";
+                str += transactRes.transactionSummary.totalUpdated + " totalUpdated!\n";
+                str += transactRes.transactionSummary.totalDeleted + " totalDeleted!";
+                alert(str);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
